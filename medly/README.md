@@ -173,6 +173,9 @@ case the data is the parent's own record, held under their account.
 - **Request deletion by email** at me.umeshuser@gmail.com if you cannot access
   the app.
 
+Full instructions, including what each option removes:
+**[Delete your data](delete-data/)**.
+
 Data held on the device is kept until you delete it or uninstall. Data synced to
 your account is kept until you delete the account.
 
