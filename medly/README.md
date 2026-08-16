@@ -14,21 +14,24 @@ source code rather than against intentions.
 
 ### The short version
 
-- **Your medication data stays on your phone by default.** Medly works fully
-  without an account, without a network connection, and without sending anything
-  anywhere.
+- **Medly backs your data up automatically.** On first launch it creates an
+  anonymous account for you and copies your medications, doses, health
+  measurements and profile names to it, so they survive losing your phone. You
+  do not have to sign in and you are not asked to — it simply happens. You can
+  stop it and delete the copy at any time; section 3 explains how.
 - **Nothing medical is ever sent to crash reporting or advertising.**
-- Three things do leave the device, each described below: an optional cloud
-  backup you turn on by signing in, anonymous crash reports, and advertising.
-- One thing surprises people, so it is stated first: **when you type a
-  medication name, that name is sent to two US government services** to look up
-  spellings and label information.
+- **When you type a medication name, that name is sent to two US government
+  services** to look up spellings and label information. This surprises people,
+  so it is stated up front.
+- Medly works completely offline. Reminders never depend on the network or on
+  the backup.
 
 ---
 
-### 1. What stays on your device
+### 1. What Medly stores about you
 
-All of this is held locally and is not transmitted unless you sign in:
+All of this is held on your device, and a copy is also kept in your account —
+see section 3:
 
 - Medications: name, dose, unit, form, schedule, start and end dates, notes,
   supply counts
@@ -42,8 +45,8 @@ All of this is held locally and is not transmitted unless you sign in:
 - Your name and email, if you entered them during setup
 - App settings: language, theme, reminder preferences
 
-Uninstalling the app deletes all of it. **Medly cannot recover it for you** —
-this is why the app offers a backup export.
+Uninstalling the app deletes the copy on your phone. If you have not deleted
+your account, the backup copy remains until you do.
 
 ---
 
@@ -66,21 +69,37 @@ fully usable if these requests fail or are blocked.
 
 ---
 
-### 3. Cloud sync — only if you sign in
+### 3. The automatic backup
 
-Medly can sync to Google Firebase so your data survives losing your phone.
-**This is off until you sign in**, and reminders never depend on it.
+The first time you open Medly it creates an **anonymous account** with Google
+Firebase and begins copying your data to it. There is no sign-in step and no
+switch to turn on: it is on from the start, so that a lost or broken phone does
+not take your medication history with it.
 
-When enabled, these are stored under your account:
+What is copied:
 
 - Medications, dose records, health measurements, and profile names
 
-Sync is one-directional today: the app uploads, and does not yet download.
+The account is anonymous. It is not linked to your name, your email or any
+Google account unless you later choose to sign in, which attaches the same
+account rather than creating a second one. Only that account can read its own
+data; this is enforced by server-side rules, not just by the app.
 
-**Signing out or deleting your account** stops sync and removes the server-side
-copy. Settings → Your data → Delete cloud account does this in-app. Your local
-data is deliberately left untouched — deleting a cloud account is a request to
-stop syncing, not to destroy the history on the phone in front of you.
+The copy travels one way today: Medly uploads, and does not yet download. A
+second device will not receive your data.
+
+**To stop it and delete the copy:** Settings → Your data → Delete cloud account.
+That removes everything held under the account, stops the backup, and — since
+version 1.2.0 — **does not quietly start again**. Earlier versions created a
+replacement account on the next launch; that was a bug and it is fixed. Signing
+in deliberately afterwards resumes the backup.
+
+Your data on the phone is deliberately left alone when you do this. Deleting the
+backup is a request to stop copying, not an instruction to destroy the
+medication history on the device in front of you. To remove that too, uninstall
+the app.
+
+Reminders never depend on any of this. Medly works fully with no network.
 
 ---
 

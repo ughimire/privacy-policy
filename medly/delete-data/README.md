@@ -11,11 +11,13 @@ removes. See the [privacy policy](../) for what is collected in the first place.
 
 ## The short version
 
-Medly works without an account. **By default nothing about your medications
-ever leaves your phone**, so for most people "delete my data" simply means
-uninstalling the app.
+Medly creates an **anonymous account for you on first launch** and backs your
+medications, doses and health measurements up to it automatically, so a lost
+phone does not take your history with it. There is no sign-in step, so most
+people have an account without having chosen one.
 
-An account only exists if you chose to sign in for cloud backup.
+Deleting your data therefore has two parts: the copy on your phone, and the
+backup copy. Both are covered below.
 
 ---
 
@@ -35,13 +37,18 @@ readable JSON file.
 
 ## 2. Delete your cloud account and its data
 
-Only relevant if you signed in.
+This applies to everyone, not only people who signed in — see above.
 
 In the app: **Settings → Your data → Delete cloud account**
 
 This deletes the account and everything stored under it on the server —
 medications, dose records, health measurements and profile names — and stops
 syncing.
+
+From version 1.2.0 onward this is permanent: Medly will not create a
+replacement account for you the next time you open it. (Earlier versions did,
+which meant the deletion silently undid itself. That was a bug and it is
+fixed.) Signing in deliberately afterwards starts the backup again.
 
 Data already on your phone is deliberately left alone. Deleting a cloud account
 is a request to stop syncing, not an instruction to destroy the medication
@@ -71,7 +78,7 @@ the email it was created with.
 | Data | Where | Retention |
 |---|---|---|
 | Medications, doses, measurements, symptoms, profiles | Your phone | Until you delete it or uninstall |
-| The same data, if you signed in | Your account | Until you delete the account |
+| The same data, backed up automatically | Your anonymous account | Until you delete the account |
 | Crash reports | Firebase Crashlytics | Retained by Google per their schedule; contains **no** medical data, only stack traces and device model |
 | Advertising identifiers | Google AdMob | Governed by the [Google Privacy Policy](https://policies.google.com/privacy) |
 
