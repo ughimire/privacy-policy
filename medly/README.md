@@ -2,7 +2,7 @@
 
 **App:** Medly — Pill Reminder & Tracker (`com.umeshghimire.medly`)
 **Publisher:** Umesh Ghimire
-**Last updated:** 16 August 2026
+**Last updated:** 18 August 2026
 
 ---
 
@@ -42,6 +42,15 @@ see section 3:
 - Symptoms and side effects you record, and any medication you associate them
   with
 - Profiles: the names you give the people you track medication for
+- **Medical documents you add**: photographs or PDFs of lab reports,
+  prescriptions, scans, discharge summaries and similar records, together with
+  the laboratory or hospital name, the doctor's name, the name printed on the
+  document, and the dates on it
+- **Values read from those documents**: test names, results, units, and the
+  reference range the laboratory itself printed
+- **Health details you choose to enter**: date of birth, sex at birth, height,
+  blood group, drug allergies, the conditions you are being treated for, and
+  your doctor's name and specialty
 - Your name and email, if you entered them during setup
 - App settings: language, theme, reminder preferences
 
@@ -69,6 +78,25 @@ fully usable if these requests fail or are blocked.
 
 ---
 
+### 2a. Reading your medical documents
+
+When you add a lab report or prescription, Medly reads the text on it so it can
+fill in the details for you instead of making you type them.
+
+**This happens entirely on your phone.** The photograph is never uploaded — not
+to us, not to Google, not to any other service. The text recognition runs
+locally using a component Google Play Services provides on the device, and it
+works with no network connection at all.
+
+Everything it reads is shown to you for checking before anything is saved. Medly
+never records a value from a document without you confirming it.
+
+Medly does not decide whether a result is normal. Where a report shows a
+reference range, that range is the laboratory's own, copied from the document.
+Where a report shows none, Medly shows none — it does not supply one.
+
+---
+
 ### 3. The automatic backup
 
 The first time you open Medly it creates an **anonymous account** with Google
@@ -78,7 +106,12 @@ not take your medication history with it.
 
 What is copied:
 
-- Medications, dose records, health measurements, and profile names
+- Medications, dose records, health measurements, profile names, the health
+  details you entered, and the values read from your medical documents
+
+**Photographs of your medical documents are not copied.** They stay on this
+phone only. If you lose the phone, the values you confirmed survive in your
+account; the images do not.
 
 The account is anonymous. It is not linked to your name, your email or any
 Google account unless you later choose to sign in, which attaches the same
@@ -153,7 +186,10 @@ advertisers.** Medly does not send AdMob anything about your medications.
 - It does not share health data with advertisers, data brokers, insurers or
   employers.
 - It does not track your location.
-- It does not read your contacts, photos, files or messages.
+- It does not browse your photos, files or messages. When you add a document,
+  Medly receives only the single file you chose and nothing else.
+- It does not upload photographs of your medical documents anywhere.
+- It does not read your contacts.
 - It does not use your health data to train any model.
 
 ---
@@ -168,6 +204,9 @@ advertisers.** Medly does not send AdMob anything about your medications.
 | Run at startup | So reminders survive restarting your phone. |
 | Ignore battery optimisation | Optional. Stops the system delaying reminders to save power. |
 | Internet | For drug-name lookup, optional sync, crash reports and ads. |
+
+Medly declares no camera permission. Taking a photo of a document opens your
+phone's own camera app, which hands back only the picture you took.
 
 Medly asks for no permission it does not use.
 
@@ -207,6 +246,11 @@ read. Synced data travels over encrypted connections and is protected by
 server-side rules that allow only your own account to read or write it. Health
 data is excluded from Android's automatic cloud backup and from device-to-device
 transfer, so it is not copied anywhere you did not choose.
+
+Photographs of medical documents are encrypted on the device with a key held in
+the phone's hardware-backed keystore, and are stored in Medly's private storage
+where other apps cannot reach them. They are excluded from Android's automatic
+cloud backup and from device-to-device transfer.
 
 No system is perfectly secure, and we cannot guarantee absolute security.
 
@@ -255,6 +299,11 @@ does not give medical advice, diagnosis or treatment.**
   drug-interaction checking of any kind. Ask a pharmacist or doctor about
   combinations.
 - Symptom patterns count what you recorded. They show co-occurrence, not cause.
+- Values read from a lab report are a transcription of what that report says.
+  Reference ranges shown beside them are the laboratory's own, reproduced
+  unedited. Medly does not interpret results, does not decide what is normal,
+  and any trend it displays is the arithmetic difference between readings, not
+  a clinical judgement.
 
 **Never start, stop or change how you take a medication based on this app.** Talk
 to a qualified healthcare professional.
