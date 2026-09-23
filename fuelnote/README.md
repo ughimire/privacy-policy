@@ -117,7 +117,7 @@ date.
 
 ### 12. Contact
 
-**support@mantrabrain.com**
+**me.umeshuser@gmail.com**
 
 ---
 
@@ -179,4 +179,4 @@ These terms may be updated; the current version is always at this address.
 
 ---
 
-**Support:** support@mantrabrain.com · [umeshghimire.com.np](https://umeshghimire.com.np)
+**Support:** me.umeshuser@gmail.com · [umeshghimire.com.np](https://umeshghimire.com.np)
